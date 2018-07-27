@@ -7,10 +7,11 @@ use Laravel\BrowserKitTesting\Concerns\InteractsWithSession;
 use Laravel\BrowserKitTesting\Constraints\HasSource;
 use Laravel\BrowserKitTesting\Constraints\PageConstraint;
 use Laravel\BrowserKitTesting\Constraints\ReversePageConstraint;
+use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
-use PHPUnit_Framework_Assert as PHPUnit;
+use PHPUnit\Framework\Assert as PHPUnit;
 
-class TestCase extends \Orchestra\Testbench\TestCase
+class TestCase extends OrchestraTestCase
 {
     use InteractsWithSession;
 
@@ -56,6 +57,8 @@ class TestCase extends \Orchestra\Testbench\TestCase
 
     protected function addDependencyForCallParameter(ReflectionParameter $parameter, array &$parameters, &$dependencies)
     {
+        $this->refreshApplication();
+
         if (array_key_exists($parameter->name, $parameters)) {
             $dependencies[] = $parameters[$parameter->name];
 

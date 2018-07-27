@@ -7,10 +7,16 @@ use Intervention\Image\ImageManager;
 use JeroenNoten\LaravelCkEditor\Uploads\ImageUploader;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
-use League\Flysystem\FilesystemInterface;
+use PHPUnit\Framework\TestCase;
 
-class ImageUploaderTest extends PHPUnit_Framework_TestCase
+class ImageUploaderTest extends TestCase
 {
+    public function setUp()
+    {
+        parent::setUp();
+        \Hamcrest\Util::registerGlobalFunctions();
+    }
+
     public function tearDown()
     {
         Mockery::close();

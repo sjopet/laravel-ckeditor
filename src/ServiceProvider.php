@@ -7,10 +7,8 @@ use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Filesystem\Factory;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Routing\Router;
-use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Intervention\Image\ImageManager;
-use JeroenNoten\LaravelCkEditor\Http\Middleware\VerifyCsrfToken;
 use JeroenNoten\LaravelCkEditor\Uploads\ImageUploader;
 use JeroenNoten\LaravelPackageHelper\ServiceProviderTraits;
 
